@@ -1,0 +1,5 @@
+T = int(input())
+for _ in range(T):
+    X, Y = map(int, input().split())  # Read X and Y
+    total_hours = 4 * X + Y           # Calculate total working hours
+    print(total_hours)                # Output the result
