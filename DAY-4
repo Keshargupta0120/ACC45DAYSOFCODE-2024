@@ -1,0 +1,13 @@
+from collections import Counter
+T = int(input())
+
+for _ in range(T):
+    # Input length of array N
+    N = int(input())
+    # Input array A
+    A = list(map(int, input().split()))
+    freq = Counter(A)
+    max_freq = max(freq.values())
+    
+    min_operations = N - max_freq
+    print(min_operations)
