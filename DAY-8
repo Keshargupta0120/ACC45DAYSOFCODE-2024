@@ -1,0 +1,28 @@
+def is_pseudo_sorted(arr):
+    # Check if the array is already sorted
+    inversions = 0
+    n = len(arr)
+    
+    # Count the number of inversions
+    for i in range(n - 1):
+        if arr[i] > arr[i + 1]:
+            inversions += 1
+            # If there is more than one inversion, return NO
+            if inversions > 1:
+                return "NO"
+    
+    # If there's at most one inversion, the array can be pseudo-sorted
+    return "YES"
+
+def main():
+    T = int(input())  # Number of test cases
+    for _ in range(T):
+        N = int(input())  # Size of the array
+        A = list(map(int, input().split()))  # Array elements
+        
+        # Check if the array is pseudo-sorted
+        print(is_pseudo_sorted(A))
+
+# Entry point for the program
+if __name__ == "__main__":
+    main()
