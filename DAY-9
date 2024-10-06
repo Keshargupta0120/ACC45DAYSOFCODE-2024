@@ -1,0 +1,14 @@
+# Function to determine the winner
+def find_winner(n):
+    if n % 2 == 0:
+        return "BOB"
+    else:
+        return "ALICE"
+
+# Input number of test cases
+t = int(input())
+
+# Process each test case
+for _ in range(t):
+    n = int(input())  # Input value of N
+    print(find_winner(n))
