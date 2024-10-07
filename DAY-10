@@ -1,0 +1,21 @@
+# Function to solve the problem
+def find_min_masks(T, test_cases):
+    results = []
+    for case in test_cases:
+        N, A = case
+        # Number of non-infected people is N - A
+        non_infected = N - A
+        # The minimum number of people to mask is the minimum of infected or non-infected
+        results.append(min(A, non_infected))
+    return results
+
+# Input and output processing
+T = int(input())  # Number of test cases
+test_cases = [tuple(map(int, input().split())) for _ in range(T)]
+
+# Find the results
+results = find_min_masks(T, test_cases)
+
+# Output results for each test case
+for result in results:
+    print(result)
