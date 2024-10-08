@@ -1,0 +1,21 @@
+# Function to solve the problem for each test case
+def solve():
+    T = int(input())  # Number of test cases
+    results = []
+    
+    for _ in range(T):
+        N = int(input())  # Size of the array
+        A = list(map(int, input().split()))  # Array elements
+
+        has_odd = any(a % 2 == 1 for a in A)  # Check if there's at least one odd number
+        
+        if has_odd:
+            results.append("YES")
+        else:
+            results.append("NO")
+    
+    # Print all results at once
+    print("\n".join(results))
+
+# Calling the solve function
+solve()
