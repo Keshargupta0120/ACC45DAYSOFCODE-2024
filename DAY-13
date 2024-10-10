@@ -1,0 +1,23 @@
+# Function to calculate the minimum number of moves
+def min_moves_to_equal_cards(cards):
+    # Count the frequency of each number in the cards
+    frequency = {}
+    for card in cards:
+        if card in frequency:
+            frequency[card] += 1
+        else:
+            frequency[card] = 1
+    
+    # Find the maximum frequency
+    max_frequency = max(frequency.values())
+    
+    # The minimum number of moves is N - max_frequency
+    return len(cards) - max_frequency
+
+# Read input and process each test case
+T = int(input())  # Number of test cases
+for _ in range(T):
+    N = int(input())  # Number of cards
+    cards = list(map(int, input().split()))  # List of card numbers
+    result = min_moves_to_equal_cards(cards)
+    print(result)
