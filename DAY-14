@@ -1,0 +1,16 @@
+# Function to compute minimum operations
+def min_operations(X, Y):
+    operations = 0
+    while X < 2 * Y and Y < 2 * X:
+        if X > Y:
+            Y += 1
+        else:
+            X += 1
+        operations += 1
+    return operations
+
+# Input processing
+T = int(input())  # Number of test cases
+for _ in range(T):
+    X, Y = map(int, input().split())
+    print(min_operations(X, Y))
