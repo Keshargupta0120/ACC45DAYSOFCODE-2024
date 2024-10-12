@@ -1,0 +1,27 @@
+# Function to solve each test case
+def can_divide_animals(N, animals):
+    # Dictionary to count occurrences of each animal type
+    from collections import Counter
+    animal_counts = Counter(animals)
+    
+    # Check if all counts are even
+    for count in animal_counts.values():
+        if count % 2 != 0:
+            return "NO"
+    
+    return "YES"
+
+# Input reading
+T = int(input()) # Number of test cases
+results = []
+
+for _ in range(T):
+    N = int(input()) # Number of animals
+    animals = list(map(int, input().split())) # List of animal types
+    
+    # Solve the test case and store the result
+    results.append(can_divide_animals(N, animals))
+
+# Output results for all test cases
+for result in results:
+    print(result)
