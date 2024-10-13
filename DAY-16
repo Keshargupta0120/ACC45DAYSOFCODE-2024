@@ -1,0 +1,34 @@
+def encode_message(s):
+    # Step 1: Swap adjacent characters
+    s = list(s)  # Convert the string to a list of characters
+    n = len(s)
+    
+    # Swap pairs of characters
+    for i in range(0, n - 1, 2):
+        s[i], s[i + 1] = s[i + 1], s[i]
+    
+    # Step 2: Replace each character with its opposite in the alphabet
+    encoded_message = []
+    for char in s:
+        # Calculate the opposite character in the alphabet
+        opposite_char = chr(122 - (ord(char) - 97))
+        encoded_message.append(opposite_char)
+    
+    # Join the list back to a string
+    return ''.join(encoded_message)
+
+# Read number of test cases
+T = int(input())
+
+# Process each test case
+for _ in range(T):
+    # Read N (length of the string, not really needed here)
+    N = int(input())
+    # Read the string S
+    S = input().strip()
+    
+    # Encode the message
+    result = encode_message(S)
+    
+    # Print the encoded message
+    print(result)
