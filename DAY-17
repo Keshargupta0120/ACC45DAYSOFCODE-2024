@@ -1,0 +1,30 @@
+# Number of test cases
+T = int(input())
+
+# For each test case
+for _ in range(T):
+    # Read the maximum candies Limak and Bob can eat
+    A, B = map(int, input().split())
+    
+    # Start the round number, where Limak starts first
+    round_number = 1
+    
+    # Keep playing until someone can't eat the required number of candies
+    while True:
+        # Limak's turn
+        if round_number % 2 != 0:  # Odd round, Limak's turn
+            if A >= round_number:
+                A -= round_number
+            else:
+                print("Bob")
+                break
+        # Bob's turn
+        else:  # Even round, Bob's turn
+            if B >= round_number:
+                B -= round_number
+            else:
+                print("Limak")
+                break
+        
+        # Move to the next round
+        round_number += 1
