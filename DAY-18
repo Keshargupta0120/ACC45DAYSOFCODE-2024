@@ -1,0 +1,21 @@
+def smallest_lexicographical_string(test_cases):
+    results = []
+    for _ in range(test_cases):
+        n = int(input())  # Read length of the string (not needed in solution)
+        a = input().strip()  # Read the binary string
+        
+        # Count '0's and '1's in the string
+        count_0 = a.count('0')
+        count_1 = n - count_0
+        
+        # Construct the smallest lexicographical string
+        smallest_string = '0' * count_0 + '1' * count_1
+        results.append(smallest_string)
+    
+    # Output all results for each test case
+    for result in results:
+        print(result)
+
+# Read number of test cases
+T = int(input().strip())
+smallest_lexicographical_string(T)
