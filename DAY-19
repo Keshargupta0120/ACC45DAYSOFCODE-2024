@@ -1,0 +1,32 @@
+# Function to check if everyone can be assigned to a preferred group size
+def can_assign_groups(N, P):
+    # Dictionary to count the occurrences of each preferred group size
+    group_count = {}
+    
+    # Count the number of people who prefer each group size
+    for size in P:
+        if size in group_count:
+            group_count[size] += 1
+        else:
+            group_count[size] = 1
+    
+    # Check if each preferred group size can form complete groups
+    for size, count in group_count.items():
+        if count % size != 0:  # If people cannot form complete groups
+            return "NO"
+    
+    return "YES"
+
+# Read the number of test cases
+T = int(input())
+
+# Process each test case
+for _ in range(T):
+    # Read the number of people
+    N = int(input())
+    
+    # Read the preferred group sizes
+    P = list(map(int, input().split()))
+    
+    # Output the result for this test case
+    print(can_assign_groups(N, P))
