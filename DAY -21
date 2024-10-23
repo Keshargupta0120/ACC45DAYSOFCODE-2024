@@ -1,0 +1,25 @@
+def min_wins_to_qualify(T, test_cases):
+    results = []
+    for X, Y in test_cases:
+        # Maximum points achievable from ties
+        if X <= Y:
+            results.append(0)  # All required points can be achieved by tying matches
+        else:
+            wins_required = X - Y
+            results.append(wins_required)
+    
+    return results
+
+# Reading input
+T = int(input())  # Number of test cases
+test_cases = []
+for _ in range(T):
+    X, Y = map(int, input().split())
+    test_cases.append((X, Y))
+
+# Solving the problem
+results = min_wins_to_qualify(T, test_cases)
+
+# Outputting the results
+for result in results:
+    print(result)
