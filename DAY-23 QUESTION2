@@ -1,0 +1,16 @@
+from collections import Counter
+
+def min_operations_to_make_elements_same(N, A):
+    freq = Counter(A)
+    max_freq = max(freq.values())  # Find the count of the most frequent element
+    return N - max_freq  # Minimum operations to make all elements the same
+
+def solve():
+    T = int(input().strip())
+    results = []
+    for _ in range(T):
+        N = int(input().strip())
+        A = list(map(int, input().strip().split()))
+        results.append(min_operations_to_make_elements_same(N, A))
+    print("\n".join(map(str, results)))
+
