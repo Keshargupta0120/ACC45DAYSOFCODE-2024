@@ -1,0 +1,51 @@
+You are given a string 
+𝑆
+S of length 
+𝑁
+N.
+
+Your task is to delete a subsequence of maximum length from the string, such that, after concatenating the remaining parts of the string, it becomes a palindrome of length greater than 
+1
+1.
+
+If this is possible, print the maximum length of the subsequence that can be deleted. Otherwise, print 
+−
+1
+−1.
+
+Input Format
+The first line of input will contain a single integer 
+𝑇
+T, denoting the number of test cases.
+Each test case consists of 
+2
+2 lines of input:
+The first line consists the a single integer 
+𝑁
+N - the length of string 
+𝑆
+S.
+The second line contains string 
+𝑆
+S, consisting of lowercase english alphabets.
+Output Format
+For each test case, if it is possible to delete a subsequence under the given conditions, print a single integer, denoting the maximum length of the subsequence that can be deleted. Otherwise, print 
+−
+1
+−1.
+
+Constraints
+1
+≤
+𝑇
+≤
+2500
+1≤T≤2500
+3
+≤
+𝑁
+≤
+100
+3≤N≤100
+𝑆
+S consists of lowercase english alphabets.
