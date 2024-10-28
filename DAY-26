@@ -1,0 +1,30 @@
+def min_cost_to_buy_jewels(T, test_cases):
+    results = []
+    
+    for S in test_cases:
+        jewel_count = {}
+        
+        # Count each jewel type in the string
+        for jewel in S:
+            if jewel in jewel_count:
+                jewel_count[jewel] += 1
+            else:
+                jewel_count[jewel] = 1
+        
+        # Calculate the cost for each jewel type
+        cost = 0
+        for count in jewel_count.values():
+            cost += (count + 1) // 2  # Integer division: half the count rounded up
+            
+        results.append(cost)
+    
+    return results
+
+# Reading input
+T = int(input("Enter number of test cases: "))
+test_cases = [input("Enter jewel string: ").strip() for _ in range(T)]
+
+# Calculate and print output for each test case
+output = min_cost_to_buy_jewels(T, test_cases)
+for cost in output:
+    print(cost)
