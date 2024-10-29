@@ -1,0 +1,24 @@
+# Read the number of test cases
+T = int(input())
+
+# Iterate over each test case
+for _ in range(T):
+    # Read N (number of distances) and K (step length)
+    N, K = map(int, input().split())
+    
+    # Read the list of distances
+    distances = list(map(int, input().split()))
+    
+    # Initialize the result string
+    result = ""
+    
+    # Check each distance
+    for D in distances:
+        # If D is divisible by K, Chef can travel this distance
+        if D % K == 0:
+            result += "1"
+        else:
+            result += "0"
+    
+    # Output the result for this test case
+    print(result)
