@@ -1,0 +1,13 @@
+t = int(input())  # Number of test cases
+
+for _ in range(t):
+    n = int(input())  # Size of the array
+    B = list(map(int, input().split()))  # Array B
+
+    # Calculate the total sum of array A from B[0]
+    total_sum_A = B[0] // 2
+
+    # Calculate each A[i] using B[i] and the total sum
+    A = [B[i] - total_sum_A for i in range(n)]
+
+    print(*A)
