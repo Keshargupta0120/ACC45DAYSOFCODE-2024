@@ -1,0 +1,33 @@
+def min_operations_to_permutation(test_cases):
+    results = []
+    
+    for A in test_cases:
+        N = len(A)
+        A.sort()  # Sort the array
+        operations = 0
+        possible = True
+        
+        for i in range(N):
+            target_value = i + 1
+            if A[i] > target_value:
+                possible = False  # Cannot decrease A[i]
+                break
+            operations += target_value - A[i]  # Calculate increments needed
+            
+        results.append(operations if possible else -1)
+    
+    return results
+
+# Input reading
+T = int(input())
+test_cases = []
+for _ in range(T):
+    N = int(input())
+    A = list(map(int, input().split()))
+    test_cases.append(A)
+
+# Get results
+results = min_operations_to_permutation(test_cases)
+
+# Print results
+for result in results:
