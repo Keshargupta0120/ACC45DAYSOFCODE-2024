@@ -1,0 +1,27 @@
+# Number of test cases
+T = int(input())
+
+# Loop through each test case
+for _ in range(T):
+    # Number of movies
+    n = int(input())
+    # Lengths of movies
+    L = list(map(int, input().split()))
+    # Ratings of movies
+    R = list(map(int, input().split()))
+    
+    # Variables to store the best choice details
+    max_value = -1
+    best_index = -1
+
+    # Iterate over each movie
+    for i in range(n):
+        value = L[i] * R[i]  # Calculate Li * Ri for each movie
+        
+        # Check if current movie is a better choice
+        if (value > max_value) or (value == max_value and R[i] > R[best_index]) or (value == max_value and R[i] == R[best_index] and i < best_index):
+            max_value = value
+            best_index = i
+
+    # Output the 1-based index of the chosen movie
+    print(best_index + 1)
