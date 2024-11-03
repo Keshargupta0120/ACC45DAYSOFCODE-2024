@@ -1,0 +1,56 @@
+import math
+
+def simple_sieve(limit):
+    # Step 1: Use basic sieve to get all primes up to sqrt(n)
+    is_prime = [True] * (limit + 1)
+    is_prime[0], is_prime[1] = False, False
+    primes = []
+    
+    for num in range(2, limit + 1):
+        if is_prime[num]:
+            primes.append(num)
+            for multiple in range(num * num, limit + 1, num):
+                is_prime[multiple] = False
+    return primes
+
+def segmented_sieve(m, n):
+    # Step 2: Use primes to mark non-primes in the range [m, n]
+    limit = int(math.sqrt(n)) + 1
+    primes = simple_sieve(limit)
+    
+    is_prime = [True] * (n - m + 1)
+    
+    for prime in primes:
+        # Find the first multiple of `prime` >= m
+        start = max(prime * prime, m + (prime - m % prime) % prime)
+        
+        for j in range(start, n + 1, prime):
+            is_prime[j - m] = False
+    
+    if m == 1:
+        is_prime[0] = False  # 1 is not a prime number
+    
+    result = []
+    for i in range(n - m + 1):
+        if is_prime[i]:
+            result.append(m + i)
+    return result
+
+def main():
+    t = int(input("Enter number of test cases: "))
+    test_cases = []
+    
+    for _ in range(t):
+        m, n = map(int, input().split())
+        test_cases.append((m, n))
+    
+    for i, (m, n) in enumerate(test_cases):
+        primes_in_range = segmented_sieve(m, n)
+        print("\n".join(map(str, primes_in_range)))
+        
+        # Print an empty line between test cases
+        if i < t - 1:
+            print()
+
+# Run the main function to take input and generate primes
+main()
