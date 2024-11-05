@@ -1,0 +1,28 @@
+# Function to compute the maximum trace of any square submatrix
+def max_trace(matrix, n):
+    max_trace_value = 0
+    
+    # Loop through all possible starting points of the diagonals
+    for i in range(n):
+        trace1 = trace2 = 0
+        for j in range(n - i):
+            trace1 += matrix[i + j][j]        # Diagonal starting from (i, 0)
+            trace2 += matrix[j][i + j]        # Diagonal starting from (0, i)
+        max_trace_value = max(max_trace_value, trace1, trace2)
+    
+    return max_trace_value
+
+# Reading input
+t = int(input("Enter number of test cases: "))
+results = []
+for _ in range(t):
+    n = int(input("Enter the size of matrix: "))
+    matrix = []
+    for _ in range(n):
+        row = list(map(int, input("Enter row values: ").split()))
+        matrix.append(row)
+    results.append(max_trace(matrix, n))
+
+# Output the results for each test case
+for result in results:
+    print(result)
