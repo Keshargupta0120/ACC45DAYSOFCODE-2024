@@ -1,0 +1,24 @@
+# Number of test cases
+T = int(input())
+
+for _ in range(T):
+    # Number of friends
+    N = int(input())
+    # Recommendations from friends
+    recommendations = list(map(int, input().split()))
+    
+    # Count the recommendations for each laptop
+    recommendation_count = [0] * 11  # Array to store counts for each laptop (1-10)
+    
+    for laptop in recommendations:
+        recommendation_count[laptop] += 1
+    
+    # Find the maximum recommendation count and the corresponding laptops
+    max_count = max(recommendation_count)
+    laptops_with_max_count = [i for i in range(1, 11) if recommendation_count[i] == max_count]
+    
+    # Determine the result based on the number of laptops with max recommendations
+    if len(laptops_with_max_count) == 1:
+        print(laptops_with_max_count[0])  # Print the laptop with highest recommendation count
+    else:
+        print("CONFUSED")  # Print CONFUSED if there's a tie
