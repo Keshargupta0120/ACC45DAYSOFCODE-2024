@@ -1,0 +1,18 @@
+def min_difference_sum(L, K):
+    q = L // K
+    r = L % K
+    # There will be `r` parts of length `q + 1` and `K - r` parts of length `q`
+    # Since we are interested in the difference sum between consecutive parts:
+    # All consecutive parts will only differ by at most 1.
+    return r * (K - r)
+
+# Read the number of test cases
+T = int(input())
+results = []
+
+for _ in range(T):
+    L, K = map(int, input().split())
+    results.append(min_difference_sum(L, K))
+
+# Print all results for each test case
+print("\n".join(map(str, results)))
