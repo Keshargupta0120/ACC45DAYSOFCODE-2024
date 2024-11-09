@@ -1,0 +1,14 @@
+def minimize_difference_sum(T, test_cases):
+    results = []
+    for L, K in test_cases:
+        x = L % K
+        min_difference_sum = x * (K - x)
+        results.append(min_difference_sum)
+    return results
+
+# Example usage
+T = int(input("Enter number of test cases: "))
+test_cases = [tuple(map(int, input().split())) for _ in range(T)]
+results = minimize_difference_sum(T, test_cases)
+for result in results:
+    print(result)
