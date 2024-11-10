@@ -1,0 +1,27 @@
+import math
+
+# Function to calculate the minimum time for each test case
+def min_time_to_kill(N, X, health):
+    # Single-Target Mode time
+    single_target_time = sum(math.ceil(h / X) for h in health)
+    
+    # Multi-Target Mode time
+    multi_target_time = max(health)
+    
+    # Return the minimum of both times
+    return min(single_target_time, multi_target_time)
+
+# Read input
+T = int(input("Enter the number of test cases: "))
+results = []
+for _ in range(T):
+    # Read N and X
+    N, X = map(int, input().split())
+    # Read the health points of each enemy
+    health = list(map(int, input().split()))
+    # Calculate the result for the current test case
+    results.append(min_time_to_kill(N, X, health))
+
+# Print all results
+for result in results:
+    print(result)
