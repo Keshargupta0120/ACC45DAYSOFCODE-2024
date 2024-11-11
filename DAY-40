@@ -1,0 +1,46 @@
+# Function to determine if candidate A can win
+def can_a_win(n, x, votes_a, votes_b):
+    needed_votes = []
+    a_wins = 0
+    
+    # Check each state
+    for i in range(n):
+        if votes_a[i] > votes_b[i]:
+            # Candidate A already wins in this state
+            a_wins += 1
+        else:
+            # Calculate the additional votes needed for A to win in this state
+            needed_votes.append(votes_b[i] - votes_a[i] + 1)
+    
+    # If A already has more than half of the states, return "YES"
+    if a_wins > n // 2:
+        return "YES"
+    
+    # Sort needed_votes in ascending order to use minimum votes first
+    needed_votes.sort()
+    
+    # Try to use Chef's extra votes to make A win in more states
+    for votes in needed_votes:
+        if x >= votes:
+            x -= votes
+            a_wins += 1
+            if a_wins > n // 2:
+                return "YES"
+        else:
+            break
+    
+    return "NO"
+
+# Reading input
+t = int(input())
+results = []
+
+for _ in range(t):
+    n, x = map(int, input().split())
+    votes_a = list(map(int, input().split()))
+    votes_b = list(map(int, input().split()))
+    result = can_a_win(n, x, votes_a, votes_b)
+    results.append(result)
+
+# Output results
+print("\n".join(results))
