@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int T; // Number of test cases
+    cin >> T;
+    
+    while (T--) {
+        int X, Y;
+        cin >> X >> Y;
+        
+        // Calculate the number of buckets that can be filled
+        int buckets = X / Y;
+        
+        // Each person requires 2 buckets of water
+        int max_people = buckets / 2;
+        
+        cout << max_people << endl;
+    }
+    
+    return 0;
+}
